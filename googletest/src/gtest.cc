@@ -5345,9 +5345,9 @@ TestResult* UnitTestImpl::current_test_result() {
   if (current_test_info_ != NULL) {
     return &current_test_info_->result_;
   }
-  if (current_test_case_ != NULL) {
-    return &current_test_case_->ad_hoc_test_result_;
-  }
+//  if (current_test_case_ != NULL) {
+//    return &current_test_case_->ad_hoc_test_result_;
+//  }
   return &ad_hoc_test_result_;
 }
 
