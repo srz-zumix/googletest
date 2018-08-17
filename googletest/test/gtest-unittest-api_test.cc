@@ -113,18 +113,19 @@ const int kTypedTests = 0;
 TEST(ApiTest, UnitTestImmutableAccessorsWork) {
   UnitTest* unit_test = UnitTest::GetInstance();
 
-  ASSERT_EQ(2 + kTypedTestCases, unit_test->total_test_case_count());
-  EXPECT_EQ(1 + kTypedTestCases, unit_test->test_case_to_run_count());
+  ASSERT_EQ(3 + kTypedTestCases, unit_test->total_test_case_count());
+  EXPECT_EQ(2 + kTypedTestCases, unit_test->test_case_to_run_count());
   EXPECT_EQ(2, unit_test->disabled_test_count());
-  EXPECT_EQ(5 + kTypedTests, unit_test->total_test_count());
-  EXPECT_EQ(3 + kTypedTests, unit_test->test_to_run_count());
+  EXPECT_EQ(7 + kTypedTests, unit_test->total_test_count());
+  EXPECT_EQ(5 + kTypedTests, unit_test->test_to_run_count());
 
   const TestCase** const test_cases = UnitTestHelper::GetSortedTestCases();
 
-  EXPECT_STREQ("ApiTest", test_cases[0]->name());
-  EXPECT_STREQ("DISABLED_Test", test_cases[1]->name());
+  EXPECT_STREQ("AdHocTestResultTest", test_cases[0]->name());
+  EXPECT_STREQ("ApiTest", test_cases[1]->name());
+  EXPECT_STREQ("DISABLED_Test", test_cases[2]->name());
 #if GTEST_HAS_TYPED_TEST
-  EXPECT_STREQ("TestCaseWithCommentTest/0", test_cases[2]->name());
+  EXPECT_STREQ("TestCaseWithCommentTest/0", test_cases[3]->name());
 #endif  // GTEST_HAS_TYPED_TEST
 
   delete[] test_cases;
